@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oreya — L’essentiel commence ici</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/cart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="/index.html">OREYA</a>
+      <div class="nav-links">
+        <a href="/products/index.html">Produits</a>
+        <a href="/pages/about.html">À propos</a>
+        <a href="/pages/faq.html">FAQ</a>
+        <a href="/pages/contact.html">Contact</a>
+        <button class="nav-cart" type="button" onclick="openCart()">
+          Panier <span class="pill" id="cart-count">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>L’essentiel commence ici.</h1>
+        <p>Oreya accompagne celles qui veulent ralentir, respirer et se retrouver.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/products/index.html">Découvrir les cures</a>
+          <a class="btn btn-ghost" href="/pages/about.html">Notre approche</a>
+        </div>
+        <div class="trust">
+          <div>Livraison France • offerte dès 60€</div>
+          <div>Retours 14 jours • non ouvert</div>
+          <div>Paiement sécurisé (mock)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Les trois cures Oreya</h2>
+        <a class="link" href="/products/index.html">Voir tout</a>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Essentiel</h3>
+          <p>Revenir à une base simple et apaisante.</p>
+          <div class="row">
+            <span class="price">100€</span>
+            <a class="link" href="/products/essentiel.html">Découvrir</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Équilibre</h3>
+          <p>Stabiliser son rythme et retrouver de la constance.</p>
+          <div class="row">
+            <span class="price">200€</span>
+            <a class="link" href="/products/equilibre.html">Découvrir</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Renaissance</h3>
+          <p>Un accompagnement profond pour revenir à soi.</p>
+          <div class="row">
+            <span class="price">300€</span>
+            <a class="link" href="/products/renaissance.html">Découvrir</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <h2>Une approche douce et consciente</h2>
+      <p>
+        Oreya ne promet pas de miracles. Elle propose un cadre, un rythme, un soutien —
+        avec des rituels simples à intégrer dans le quotidien.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© Oreya llt — Brussels, Belgium</div>
+      <div class="footer-links">
+        <a href="/legal/privacy.html">Confidentialité</a>
+        <a href="/legal/terms.html">Conditions</a>
+        <a href="/legal/returns.html">Retours</a>
+        <a href="/legal/cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div class="cookie" id="cookie-banner" hidden>
+    <div class="cookie-card">
+      <div class="cookie-title">Cookies</div>
+      <div class="cookie-text">
+        Nous utilisons des cookies essentiels au fonctionnement du site et, avec votre accord,
+        des cookies pour améliorer l’expérience.
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-ghost" type="button" onclick="rejectCookies()">Refuser</button>
+        <button class="btn" type="button" onclick="acceptCookies()">Accepter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="drawer" id="cart-drawer" hidden>
+    <div class="drawer-backdrop" onclick="closeCart()"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Panier">
+      <div class="drawer-head">
+        <div class="drawer-title">Votre panier</div>
+        <button class="icon-btn" type="button" onclick="closeCart()">✕</button>
+      </div>
+      <div class="drawer-body" id="cart-items"></div>
+      <div class="drawer-foot">
+        <div class="totals">
+          <div class="totals-row"><span>Sous-total</span><span id="cart-subtotal">0€</span></div>
+          <div class="totals-row"><span>Livraison</span><span id="cart-shipping">0€</span></div>
+          <div class="totals-row totals-strong"><span>Total</span><span id="cart-total">0€</span></div>
+          <div class="totals-note">France • Livraison offerte dès 60€ (sinon 4,90€).</div>
+        </div>
+        <a class="btn btn-full" href="/pages/checkout.html" onclick="return proceedToCheckout()">Passer au paiement</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
