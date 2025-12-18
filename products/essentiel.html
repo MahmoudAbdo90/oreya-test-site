@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Essentiel — Oreya</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/cart.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="/index.html">OREYA</a>
+    <div class="nav-links">
+      <a href="/products/index.html">Produits</a>
+      <a href="/pages/about.html">À propos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contact.html">Contact</a>
+      <button class="nav-cart" type="button" onclick="openCart()">
+        Panier <span class="pill" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-card">
+      <h1>Essentiel</h1>
+      <p class="price">100€</p>
+      <p>
+        Revenir à une base simple et apaisante.  
+        Une routine courte pour ralentir, respirer, et retrouver un point d’ancrage.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#" onclick="addToCart('Essentiel',100,'BOX-ESS');return false;">
+          Ajouter au panier
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>L’essentiel, sans surcharge</h2>
+    <p>
+      Essentiel a été conçu comme un point de départ.  
+      Une cure douce, fluide, qui ne cherche pas à en faire trop.
+      Elle s’intègre naturellement dans le quotidien, sans pression ni performance.
+    </p>
+    <p>
+      C’est une invitation à ralentir, à remettre du calme là où tout s’accélère,
+      et à retrouver une sensation de stabilité intérieure.
+    </p>
+  </section>
+
+  <section class="section soft">
+    <h2>Ce que contient la box</h2>
+    <ul>
+      <li>Sachets journaliers — matin & soir</li>
+      <li>Guide d’accompagnement Oreya</li>
+      <li>Rituels simples pour ancrer une routine apaisante</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Pour qui ?</h2>
+    <p>
+      Essentiel s’adresse à celles qui se sentent fatiguées, dispersées,
+      ou qui souhaitent simplement poser une base douce avant d’aller plus loin.
+    </p>
+    <p class="small">
+      Déconseillé aux femmes enceintes ou allaitantes.
+      En cas de traitement médical ou de condition particulière,
+      demander l’avis d’un professionnel de santé.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© Oreya llt — Brussels, Belgium</div>
+    <div class="footer-links">
+      <a href="/legal/privacy.html">Confidentialité</a>
+      <a href="/legal/terms.html">Conditions</a>
+      <a href="/legal/returns.html">Retours</a>
+      <a href="/legal/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
