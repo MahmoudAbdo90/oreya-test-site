@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paiement — Oreya</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/cart.js"></script>
+  <script defer src="/assets/js/checkout.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="/index.html">OREYA</a>
+    <div class="nav-links">
+      <a href="/products/index.html">Produits</a>
+      <a href="/pages/about.html">À propos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contact.html">Contact</a>
+      <button class="nav-cart" type="button" onclick="openCart()">
+        Panier <span class="pill" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="section">
+    <div class="section-head">
+      <h2>Paiement</h2>
+      <span class="small">Maquette de test • France uniquement</span>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1.3fr 0.7fr; gap: 18px;">
+      <!-- LEFT: form -->
+      <div class="card">
+        <h3>Informations de livraison</h3>
+        <form id="checkout-form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div>
+              <label class="small">Prénom *</label>
+              <input id="firstName" type="text" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+            </div>
+            <div>
+              <label class="small">Nom *</label>
+              <input id="lastName" type="text" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label class="small">Email *</label>
+            <input id="email" type="email" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+          </div>
+
+          <div style="margin-top:12px">
+            <label class="small">Adresse *</label>
+            <input id="address" type="text" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 0.6fr;gap:12px;margin-top:12px">
+            <div>
+              <label class="small">Ville *</label>
+              <input id="city" type="text" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+            </div>
+            <div>
+              <label class="small">Code postal *</label>
+              <input id="zip" type="text" required style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14)" />
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <label class="small">Pays</label>
+            <input type="text" value="France" disabled style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.08);background:rgba(0,0,0,.03)" />
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(0,0,0,.08);margin:18px 0" />
+
+          <h3>Moyen de paiement (maquette)</h3>
+          <div style="display:grid;gap:10px;margin-top:10px">
+            <label class="small" style="display:flex;gap:10px;align-items:center">
+              <input type="radio" name="payment" value="Carte" /> Carte
+            </label>
+            <label class="small" style="display:flex;gap:10px;align-items:center">
+              <input type="radio" name="payment" value="Apple Pay" /> Apple Pay
+            </label>
+            <label class="small" style="display:flex;gap:10px;align-items:center">
+              <input type="radio" name="payment" value="PayPal" /> PayPal
+            </label>
+            <label class="small" style="display:flex;gap:10px;align-items:center">
+              <input type="radio" name="payment" value="Bancontact / Maestro" /> Bancontact / Maestro
+            </label>
+          </div>
+
+          <p class="small" style="margin-top:14px;opacity:.85">
+            Maquette de test : aucun paiement réel n’est effectué.
+          </p>
+
+          <button id="pay-btn" class="btn btn-full" type="submit" style="margin-top:10px">
+            Payer (mock)
+          </button>
+
+          <p class="small" style="margin-top:12px">
+            En cliquant sur “Payer”, tu acceptes nos <a href="/legal/terms.html">conditions</a> et notre <a href="/legal/privacy.html">politique de confidentialité</a>.
+          </p>
+        </form>
+      </div>
+
+      <!-- RIGHT: summary -->
+      <aside class="card">
+        <h3>Récapitulatif</h3>
+
+        <div id="empty-cart" class="small" hidden style="margin-top:10px">
+          Ton panier est vide. <a href="/products/index.html">Retour aux produits</a>.
+        </div>
+
+        <div id="summary-items" style="margin-top:10px"></div>
+
+        <div class="totals" style="margin-top:14px">
+          <div class="totals-row"><span>Sous-total</span><span id="sum-subtotal">0€</span></div>
+          <div class="totals-row"><span>Livraison</span><span id="sum-shipping">0€</span></div>
+          <div class="totals-row totals-strong"><span>Total</span><span id="sum-total">0€</span></div>
+          <div class="totals-note">Livraison offerte dès 60€ (sinon 4,90€).</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© Oreya llt — Brussels, Belgium</div>
+    <div class="footer-links">
+      <a href="/legal/privacy.html">Confidentialité</a>
+      <a href="/legal/terms.html">Conditions</a>
+      <a href="/legal/returns.html">Retours</a>
+      <a href="/legal/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
