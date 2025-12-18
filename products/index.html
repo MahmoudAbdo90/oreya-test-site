@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Produits — Oreya</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/site.js"></script>
+  <script defer src="/assets/js/cart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="/index.html">OREYA</a>
+      <div class="nav-links">
+        <a href="/products/index.html">Produits</a>
+        <a href="/pages/about.html">À propos</a>
+        <a href="/pages/faq.html">FAQ</a>
+        <a href="/pages/contact.html">Contact</a>
+        <button class="nav-cart" type="button" onclick="openCart()">
+          Panier <span class="pill" id="cart-count">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-head">
+        <h2>Les cures Oreya</h2>
+        <span class="small">Livraison offerte dès 60€ • Retours 14 jours (non ouvert)</span>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Essentiel</h3>
+          <p>Revenir à une base simple et apaisante.</p>
+          <div class="row">
+            <span class="price">100€</span>
+            <a class="link" href="/products/essentiel.html">Voir</a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn btn-full" href="#" onclick="addToCart('Essentiel',100,'BOX-ESS');return false;">Ajouter</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Équilibre</h3>
+          <p>Stabiliser son rythme et retrouver de la constance.</p>
+          <div class="row">
+            <span class="price">200€</span>
+            <a class="link" href="/products/equilibre.html">Voir</a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn btn-full" href="#" onclick="addToCart('Équilibre',200,'BOX-EQU');return false;">Ajouter</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Renaissance</h3>
+          <p>Un accompagnement profond pour revenir à soi.</p>
+          <div class="row">
+            <span class="price">300€</span>
+            <a class="link" href="/products/renaissance.html">Voir</a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn btn-full" href="#" onclick="addToCart('Renaissance',300,'BOX-REN');return false;">Ajouter</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="section-head">
+        <h2>Tisanes & herbes (150g)</h2>
+        <span class="small">Feuilles en vrac • Tisane uniquement</span>
+      </div>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="card">
+          <h3>Rituel du Soir</h3>
+          <p>Un moment de déconnexion, doux et enveloppant.</p>
+          <div class="row">
+            <span class="price">19€</span>
+            <a class="link" href="/products/tisane-soir.html">Voir</a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn btn-full" href="#" onclick="addToCart('Rituel du Soir (150g)',19,'TIS-SOIR');return false;">Ajouter</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Équilibre Digestif</h3>
+          <p>Après-repas, léger, quotidien.</p>
+          <div class="row">
+            <span class="price">19€</span>
+            <a class="link" href="/products/tisane-digestive.html">Voir</a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn btn-full" href="#" onclick="addToCart('Équilibre Digestif (150g)',19,'TIS-DIG');return false;">Ajouter</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Clarté du Matin</h3>
+          <p>Réveil calme, frais, sans surstimulation.</p>
+          <div class="row">
+            <span class="price">19€</span>
+            <a
