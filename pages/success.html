@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Commande confirmée — Oreya</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script defer src="/assets/js/site.js"></script>
+  <script>
+    function euro(n){
+      return (Math.round(n*100)/100).toFixed(2).replace(".", ",") + "€";
+    }
+    function loadOrder(){
+      try { return JSON.parse(localStorage.getItem("oreya_last_order_v1") || "null"); } catch { return null; }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const order = loadOrder();
+      const box = document.getElementById("order-box");
+      if (!order){
+        box.innerHTML = `<p class="small">Aucune commande trouvée. <a href="/products/index.html">Retour aux produits</a>.</p>`;
+        return;
+      }
+      document.getElementById("order-id").textContent = order.id;
+      document.getElementById("order-total").textContent = euro(order.total);
+      document.getElementById("order-method").textContent = order.paymentMethod;
+
+      const itemsEl = document.getElementById("order-items");
+      itemsEl.innerHTML = "";
+      for (const it of order.items){
+        const div = document.createElement("div");
+        div.className = "line";
+        div.innerHTML = `
+          <div>
+            <div><strong>${it.name}</strong></div>
+            <div class="small">Quantité: ${it.qty}</div>
+          </div>
+          <div><strong>${euro(it.price * it.qty)}</strong></div>
+        `;
+        itemsEl.appendChild(div);
+      }
+    });
+  </script>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="/index.html">OREYA</a>
+    <div class="nav-links">
+      <a href="/products/index.html">Produits</a>
+      <a href="/pages/about.html">À propos</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-card">
+      <h1>Commande confirmée</h1>
+      <p>
+        Merci. Ta commande a bien été enregistrée (maquette).  
+        Un email de confirmation serait envoyé dans un site réel.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="/products/index.html">Continuer mes achats</a>
+        <a class="btn btn-ghost" href="/index.html">Retour à l’accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card" id="order-box">
+      <h3>Détails de la commande</h3>
+      <p class="small">Référence : <strong id="order-id">—</strong></p>
+      <p class="small">Paiement : <strong id="order-method">—</strong></p>
+
+      <div id="order-items" style="margin-top:10px"></div>
+
+      <div class="totals" style="margin-top:14px">
+        <div class="totals-row totals-strong"><span>Total</span><span id="order-total">—</span></div>
+      </div>
+
+      <p class="small" style="margin-top:12px;opacity:.85">
+        Retours: 14 jours, produit non ouvert. Livraison France — offerte dès 60€.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© Oreya llt — Brussels, Belgium</div>
+    <div class="footer-links">
+      <a href="/legal/privacy.html">Confidentialité</a>
+      <a href="/legal/terms.html">Conditions</a>
+      <a href="/legal/returns.html">Retours</a>
+      <a href="/legal/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
